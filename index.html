@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game Hub</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .game-tile {
+      cursor: pointer;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .game-tile:hover {
+      transform: scale(1.05);
+    }
+    .game-tile img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Unblocked Games</h1>
+  <div class="grid" id="gameGrid"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

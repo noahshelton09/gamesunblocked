@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Play Game</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <script src="script.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+
+    fetch("games.json")
+      .then(res => res.json())
+      .then(data => {
+        if (data[id]) {
+          document.title = data[id].title;
+          const iframe = document.createElement("iframe");
+          iframe.src = data[id].embed;
+          document.body.appendChild(iframe);
+        } else {
+          document.body.innerHTML = "<h1 style='color:white;text-align:center;'>Game not found</h1>";
+        }
+      });
+  </script>
+</body>
+</html>
